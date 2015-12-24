@@ -3,9 +3,10 @@
 # Verne.mq Docker Image
 # 
 
-cp /tmp/vernemq.conf.default /etc/vernemq/vernemq.conf
-cp /tmp/vmq.acl.default /etc/vernemq/vmq.acl
-cp /tmp/vmq.passwd.default /etc/vernemq/vmq.passwd
+cp /host/vernemq.conf.default /etc/vernemq/vernemq.conf
+cp /host/vmq.acl.default /etc/vernemq/vmq.acl
+cp /host/vmq.passwd.default /etc/vernemq/vmq.passwd
 
-sudo vernemq start
+touch /var/log/vernemq/console.log
+vernemq start
 tail -f /var/log/vernemq/console.log

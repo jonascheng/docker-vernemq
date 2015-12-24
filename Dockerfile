@@ -22,14 +22,14 @@ RUN     export DEBIAN_FRONTEND=noninteractive && apt-get install -yq vernemq
 
 RUN     export DEBIAN_FRONTEND=noninteractive && apt-get -yq clean
 
-COPY    usage /
 COPY    run.sh /
-COPY	vernemq.conf.default vmq.passwd.default vmq.acl.default /tmp/
+#COPY	vernemq.conf.default vmq.passwd.default vmq.acl.default /tmp/
 
 RUN	chmod +x /run.sh
 
 VOLUME	/etc/vernemq
 VOLUME	/var/lib/vernemq
+VOLUME  /var/log/vernemq
 
 EXPOSE  1883
 EXPOSE  4369
