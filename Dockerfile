@@ -23,7 +23,6 @@ RUN     export DEBIAN_FRONTEND=noninteractive && apt-get install -yq vernemq
 RUN     export DEBIAN_FRONTEND=noninteractive && apt-get -yq clean
 
 COPY    run.sh /
-#COPY	vernemq.conf.default vmq.passwd.default vmq.acl.default /tmp/
 
 RUN	chmod +x /run.sh
 
@@ -31,8 +30,13 @@ VOLUME	/etc/vernemq
 VOLUME	/var/lib/vernemq
 VOLUME  /var/log/vernemq
 
+# TCP port
 EXPOSE  1883
+# Erlang Port Mapper daemon (epmd)
 EXPOSE  4369
+# Distributing the ‘real’ MQTT messages port
+EXPOSE  44053
+# Inter-Erlang node communication port range
 EXPOSE  18000-18999
 
 ENTRYPOINT	["./run.sh"]

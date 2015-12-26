@@ -175,7 +175,7 @@ listener.tcp.default = 0.0.0.0:1883
 ## 
 ## Acceptable values:
 ##   - an IP/port pair, e.g. 127.0.0.1:10011
-listener.vmq.clustering = 0.0.0.0:44053
+listener.vmq.clustering = 172.17.0.2:44053
 
 ## 
 erlang.distribution.port_range.minimum = 18001
@@ -660,7 +660,7 @@ log.crash.rotation.keep = 5
 ## 
 ## Acceptable values:
 ##   - text
-nodename = broker@hostname.example.com
+nodename = broker1@mqtt1.trendmicro.com
 
 ## Cookie for distributed node communication. All nodes in the
 ## same cluster should use the same cookie or they will not be able to
